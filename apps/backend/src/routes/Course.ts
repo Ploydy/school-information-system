@@ -2,12 +2,23 @@ import express, { Request, Response } from 'express';
 import { isValidObjectId } from 'mongoose';
 import CourseDB from '../data/mongoose';
 
+type Course = {
+  id: string,
+  name: string,
+  totalUnits: number,
+  description: string
+};
+
 const router = express.Router();
 
 // read all
 router.get('/', async (req: Request, res: Response) => {
   const course = await CourseDB.CourseDB.find({});
-  res.send(course);
+  const response: Course[] = [];
+  course.forEach(element => {
+    response.push({ id: element._id.toString(), name: element.name, totalUnits: element.totalUnits, description: element.description });
+  });
+  res.send(response);
 
 });
 
