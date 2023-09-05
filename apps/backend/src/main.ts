@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import courseRoute from './routes/Course';
-
+import mongoose from './data/mongoose';
 
 
 const host = process.env.HOST ?? 'localhost';
@@ -15,6 +15,9 @@ app.use(
     origin: 'http://localhost:3000',
   })
 );
+
+ mongoose.main();
+
 
 // support parsing of application/json post data
 app.use(bodyParser.json());
