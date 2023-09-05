@@ -20,6 +20,7 @@
     "@nx/js": "16.7.4",
     "@nx/linter": "16.7.4",
     "@nx/node": "16.7.4",
+    "@nx/react": "^16.7.4",
     "@nx/workspace": "16.7.4",
     "@types/body-parser": "^1.19.2",
     "@types/cors": "^2.8.14",
