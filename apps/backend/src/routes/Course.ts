@@ -16,7 +16,7 @@ router.get('/', async (req: Request, res: Response) => {
   const course = await CourseDB.CourseDB.find({});
   const response: Course[] = [];
   course.forEach(element => {
-    response.push({ id: element._id.toString(), name: element.name, totalUnits: element.totalUnits, description: element.description });
+    response.push({ id: element.id, name: element.name, totalUnits: element.totalUnits, description: element.description });
   });
   res.send(response);
 
@@ -30,7 +30,8 @@ router.get('/:id', async (req, res) => {
   if (!course) {
     return res.status(404).send();
   }
-  res.send(course);
+  const response : Course = {id: course.id, name: course.name, totalUnits: course.totalUnits, description: course.description};
+  res.send(response);
 });
 
 // create
@@ -74,7 +75,7 @@ router.put('/:id', async (req, res) => {
   course.totalUnits = req.body.totalUnits;
   course.description = req.body.description;
   await course.save();
-  res.send(course);
+  res.send();
 });
 
 
