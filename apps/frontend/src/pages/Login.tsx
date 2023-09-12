@@ -19,7 +19,8 @@ export default function Login() {
   };
 
   return (
-    <section>
+
+     <section>
       <div>
         <input
           placeholder="Email address"
@@ -34,8 +35,8 @@ export default function Login() {
           {...register('password')}
         />
       </div>
-      <button onClick={handleSubmit(handleLogin)}></button>
-    </section>
+      <button onClick={handleSubmit(handleLogin)}>Login</button>
+    </section> 
   )
 };
 
