@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
-
+import axios from 'axios'
+import { LoginRequest, LoginResponse } from '@sis/dto'
 
 type FormData = {
   email: string,
@@ -16,12 +17,12 @@ export default function Login() {
     formState: { errors },
   } = useForm<FormData>();
 
-  const handleLogin = (data: FormData) => {
-    console.log(data);
-    try {
+  const handleLogin = async (data: FormData) => {
+    const request: LoginRequest = { username: data.email, password: data.password }
+
+    const result = await axios.post<LoginResponse, any, LoginRequest>('http://localhost:3001/user/login', request)
+    if (result.status === 200) {
       navigate('/admin')
-    } catch (err) {
-      console.log(err)
     }
   };
 
@@ -64,7 +65,7 @@ export default function Login() {
           >
             Sign In
           </button>
-           
+
         </div>
       </div>
     </div>

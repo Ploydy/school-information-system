@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import mongoose from './data/mongoose';
+import {main} from './data/mongoose';
 
 import courseRoute from './routes/Course';
 import userRoute from './routes/User';
@@ -14,11 +14,11 @@ const app = express();
 
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: 'http://localhost:4200',
   })
 );
 
- mongoose.main();
+ main();
 
 
 // support parsing of application/json post data

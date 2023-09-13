@@ -7,6 +7,14 @@ async function main() {
      .then(() => console.log('connected to db'));
 };
 
+const userSchema = new Schema({
+  fullName: String,
+  password: String,
+  email: String,
+  created: {type: Date, default: Date.now}
+})
+
+
 const courseSchema = new Schema({
   name: String,
   totalUnits: Number,
@@ -14,6 +22,8 @@ const courseSchema = new Schema({
   created: { type: Date, default: Date.now },
 });
 
+const UserDB = model('User' , userSchema);
 const CourseDB = model('Course', courseSchema);
 
-export default { main, CourseDB };
+
+export { main, CourseDB, UserDB };

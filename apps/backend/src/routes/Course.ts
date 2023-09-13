@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express';
 import { isValidObjectId } from 'mongoose';
-import CourseDB from '../data/mongoose';
+import {CourseDB} from '../data/mongoose';
 
 type Course = {
   id: string,
@@ -13,7 +13,7 @@ const router = express.Router();
 
 // read all
 router.get('/', async (req: Request, res: Response) => {
-  const course = await CourseDB.CourseDB.find({});
+  const course = await CourseDB.find({});
   const response: Course[] = [];
   course.forEach(element => {
     response.push({ id: element.id, name: element.name, totalUnits: element.totalUnits, description: element.description });
@@ -26,7 +26,7 @@ router.get('/', async (req: Request, res: Response) => {
 router.get('/:id', async (req, res) => {
   if (!isValidObjectId(req.params.id))
     return res.status(400).send('invalid id');
-  const course = await CourseDB.CourseDB.findById(req.params.id);
+  const course = await CourseDB.findById(req.params.id);
   if (!course) {
     return res.status(404).send();
   }
@@ -42,7 +42,7 @@ router.post('/', async (req, res) => {
   if (req.body?.name?.length <= 0) {
     return res.status(400).send('name is required');
   }
-  const course = new CourseDB.CourseDB({
+  const course = new CourseDB({
     name: req.body.name,
     totalUnits: req.body.totalUnits,
     description: req.body.description,
@@ -58,7 +58,7 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
   if (!isValidObjectId(req.params.id))
     return res.status(400).send('invalid id');
-  const course = await CourseDB.CourseDB.findById(req.params.id);
+  const course = await CourseDB.findById(req.params.id);
   if (!course) {
     return res.status(404).send();
   }
@@ -84,7 +84,7 @@ router.delete('/:id', async (req, res) => {
 
   if (!isValidObjectId(req.params.id))
     return res.status(400).send('invalid id');
-  const course = await CourseDB.CourseDB.findById(req.params.id);
+  const course = await CourseDB.findById(req.params.id);
   if (!course) {
     return res.status(404).send();
   }
