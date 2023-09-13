@@ -1,16 +1,38 @@
 import Header from './Header';
 import Footer from './Footer';
 import { Outlet } from 'react-router-dom';
+import { useState } from 'react';
+import Sidebar from './Sidebar';
 
 function AdminLayout() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   return (
-    <>
-      <Header />
+    <div className="dark:bg-boxdark-2 dark:text-bodydark">
+    {/* <!-- ===== Page Wrapper Start ===== --> */}
+    <div className="flex h-screen overflow-hidden">
+      {/* <!-- ===== Sidebar Start ===== --> */}
+      <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+      {/* <!-- ===== Sidebar End ===== --> */}
 
-        <Outlet />
+      {/* <!-- ===== Content Area Start ===== --> */}
+      <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
+        {/* <!-- ===== Header Start ===== --> */}
+        <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+        {/* <!-- ===== Header End ===== --> */}
 
-      <Footer />
-    </>
+        {/* <!-- ===== Main Content Start ===== --> */}
+        <main>
+          <div className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+            <Outlet />
+          </div>
+        </main>
+        {/* <!-- ===== Main Content End ===== --> */}
+      </div>
+      {/* <!-- ===== Content Area End ===== --> */}
+    </div>
+    {/* <!-- ===== Page Wrapper End ===== --> */}
+  </div>
 
 
   )
