@@ -1,8 +1,10 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import courseRoute from './routes/Course';
 import mongoose from './data/mongoose';
+
+import courseRoute from './routes/Course';
+import userRoute from './routes/User';
 
 
 const host = process.env.HOST ?? 'localhost';
@@ -27,6 +29,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/course', courseRoute)
+app.use('/user', userRoute)
 
 app.listen(port, host, () => {
   console.log(`[ ready ] http://${host}:${port}`);
