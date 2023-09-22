@@ -7,6 +7,8 @@ import User from "./pages/admin/User";
 import AdminLayout from "./pages/admin/layout/AdminLayout";
 import Profile from "./pages/admin/Profile";
 import Course from "./pages/admin/Course";
+import AddCourse from "./pages/admin/layout/AddCourse";
+import UpdateCourse from "./pages/admin/layout/UpdateCourse";
 
 
 const router = createBrowserRouter([
@@ -28,11 +30,19 @@ const router = createBrowserRouter([
       },
       {
         path: '/admin/profile',
-        element: <Profile />
+        element: <Profile />,
       },
       {
         path: '/admin/Course',
-        element: <Course />
+        element: <Course />,
+      },
+      {
+        path: '/admin/AddCourse',
+        element: <AddCourse />,
+      },
+      {
+        path: '/admin/UpdateCourse/:id',
+        element: <UpdateCourse />,
       },
     ],
   },

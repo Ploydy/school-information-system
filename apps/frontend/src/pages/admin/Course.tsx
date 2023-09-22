@@ -39,7 +39,7 @@ export default function Course() {
     <div>
       <section>
         <h2>Course List</h2>
-        <Link to="/AddCourse">
+        <Link to="/admin/AddCourse">
           <button className="btn btn-dark AddNewCourse">Add a new Course</button>
         </Link>
         <table className="table table-striped table-dark">
@@ -60,7 +60,7 @@ export default function Course() {
                 <td>{course.totalUnits}</td>
                 <td>{course.description}</td>
                 <td>
-                  <Link to={`/updateCourse/${course.id}`}>
+                  <Link to={`/admin/updateCourse/${course.id}`}>
                     <button
                       className="btn btn-sm btn-outline-info "
                     >
