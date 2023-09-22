@@ -5,7 +5,8 @@ import Dashboard from "./pages/admin/Dashboard";
 import User from "./pages/admin/User";
 
 import AdminLayout from "./pages/admin/layout/AdminLayout";
-import Profile from "./pages/admin/layout/Profile";
+import Profile from "./pages/admin/Profile";
+import Course from "./pages/admin/Course";
 
 
 const router = createBrowserRouter([
@@ -29,9 +30,13 @@ const router = createBrowserRouter([
         path: '/admin/profile',
         element: <Profile />
       },
+      {
+        path: '/admin/Course',
+        element: <Course />
+      },
     ],
   },
-  
+
 ]);
 
 export default router;

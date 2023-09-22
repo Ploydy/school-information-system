@@ -1,6 +1,6 @@
-import Breadcrumb from '../layout/Breadcrumb';
-import CoverOne from '../../../assets/images/cover/cover-01.png';
-import userSix from '../../../assets/images/user/user-06.png';
+import Breadcrumb from './layout/Breadcrumb';
+import CoverOne from '../../assets/images/cover/cover-01.png';
+import userSix from '../../assets/images/user/user-06.png';
 
 const Profile = () => {
   return (
