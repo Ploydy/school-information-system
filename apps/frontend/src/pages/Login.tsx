@@ -23,7 +23,10 @@ export default function Login() {
     const result = await axios.post<LoginResponse, any, LoginRequest>('http://localhost:3001/user/login', request)
     if (result.status === 200) {
       navigate('/admin')
+    } else {
+      alert('Incorrect credentials')
     }
+    
   };
 
   return (

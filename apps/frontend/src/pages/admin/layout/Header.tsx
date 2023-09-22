@@ -1,8 +1,9 @@
-import React from 'react'
 import { Link } from 'react-router-dom';
 import DropdownUser from './DropdownUser';
 import Logo from '../../../assets/images/logo/logo-icon.svg';
 import DarkModeSwitcher from './DarkModeSwitcher';
+import DropdownNotification from './DropdownNotification';
+import DropdownMessage from './DropdownMessage';
 
 const Header = (props: {
   sidebarOpen: string | boolean | undefined;
@@ -61,7 +62,7 @@ const Header = (props: {
         </div>
 
         <div className="hidden sm:block">
-          <form action="https://formbold.com/s/unique_form_id" method="POST">
+          <form action="" method="">
             <div className="relative">
               <button className="absolute top-1/2 left-0 -translate-y-1/2">
                 <svg
@@ -103,11 +104,11 @@ const Header = (props: {
             {/* <!-- Dark Mode Toggler --> */}
 
             {/* <!-- Notification Menu Area --> */}
-            {/* <DropdownNotification /> */}
+             <DropdownNotification /> 
             {/* <!-- Notification Menu Area --> */}
 
             {/* <!-- Chat Notification Area --> */}
-            {/* <DropdownMessage /> */}
+             <DropdownMessage /> 
             {/* <!-- Chat Notification Area --> */}
           </ul>
 

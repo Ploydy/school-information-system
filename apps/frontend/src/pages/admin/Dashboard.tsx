@@ -13,17 +13,20 @@ function Dashboard() {
     dispatch(decrement())
   };
 
-  const handleLogout = () => {
-    console.log('someone clicked logout!');
-  };
-
+ 
   return (
     <div>
-      Dashboard
-      {count}
-    <button onClick={handleLogout}>logout</button>
-    <button onClick={handleIncrement}>increment</button>
-    <button onClick={handleDecrenent}>decrement</button>
+      <div>
+
+        Dashboard
+      </div>
+        {count}
+      <div>
+
+        <button onClick={handleIncrement}>increment 1</button>
+      </div>
+        <button onClick={handleDecrenent}>decrement 1</button>
+      
     </div>
   )
 }
