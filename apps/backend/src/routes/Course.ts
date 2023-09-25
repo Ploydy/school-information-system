@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express';
 import { isValidObjectId } from 'mongoose';
-import {CourseDB} from '../data/mongoose';
+import { CourseDB } from '../data/mongoose';
 
 type Course = {
   id: string,
@@ -30,7 +30,7 @@ router.get('/:id', async (req, res) => {
   if (!course) {
     return res.status(404).send();
   }
-  const response : Course = {id: course.id, name: course.name, totalUnits: course.totalUnits, description: course.description};
+  const response: Course = { id: course.id, name: course.name, totalUnits: course.totalUnits, description: course.description };
   res.send(response);
 });
 
