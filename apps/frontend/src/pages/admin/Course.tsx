@@ -42,8 +42,8 @@ export default function Course() {
         <Link to="/admin/AddCourse">
           <button className="btn btn-dark AddNewCourse">Add a new Course</button>
         </Link>
-        <table className="table table-striped table-dark">
-          <thead>
+        <table className="table-fixed">
+          <thead className="">
             <tr>
               <th scope="col">Id</th>
               <th scope="col">Course</th>
@@ -62,13 +62,13 @@ export default function Course() {
                 <td>
                   <Link to={`/admin/updateCourse/${course.id}`}>
                     <button
-                      className="btn btn-sm btn-outline-info "
+                      className="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300"
                     >
                       Update
                     </button>
                   </Link>
                   <button
-                    className="btn btn-sm m-2 btn-outline-danger"
+                    className=""
                     onClick={() => handleDelete(course.id)}
                   >
                     Delete

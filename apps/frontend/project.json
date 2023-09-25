@@ -19,7 +19,8 @@
         "styles": ["apps/frontend/src/styles.css"],
         "scripts": [],
         "isolatedConfig": true,
-        "webpackConfig": "apps/frontend/webpack.config.js"
+        "webpackConfig": "apps/frontend/webpack.config.js",
+        "postcssConfig": "apps/frontend/postcss.config.js"
       },
       "configurations": {
         "development": {

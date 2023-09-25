@@ -16,9 +16,8 @@ function Dashboard() {
  
   return (
     <div>
-      <div>
-
-        Dashboard
+      <div className='bg-indigo-500 p-2 font-mono'>
+      <h1>Dashboard</h1>
       </div>
         {count}
       <div>
