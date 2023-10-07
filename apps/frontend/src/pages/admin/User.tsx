@@ -39,28 +39,28 @@ export default function User() {
     <div>
       <section>
         <h2>User List</h2>
-        <Link to="/admin/AddUser">
+        <Link to="/admin/user/new">
           <button className="">Add a new User</button>
         </Link>
         <table className="">
           <thead>
             <tr>
-              <th scope="col">Id</th>
-              <th scope="col">User</th>
-              <th scope="col">email</th>
-              <th scope="col">password</th>
-              <th scope="col">Actions</th>
+              <th className="border w-1/5 px-1 py-2" scope="col">Id</th>
+              <th className="border w-1/5 px-1 py-2" scope="col">User</th>
+              <th className="border w-1/5 px-1 py-2" scope="col">email</th>
+              <th className="border w-1/5 px-1 py-2" scope="col">password</th>
+              <th className="border w-1/5 px-1 py-2" scope="col">Actions</th>
             </tr>
           </thead>
           <tbody>
             {users.map((user) => (
               <tr key={user.id}>
-                <th scope="row">{user.id}</th>
-                <td>{user.fullName}</td>
-                <td>{user.email}</td>
-                <td>{user.password}</td>
-                <td>
-                  <Link to={`/admin/updateUser/${user.id}`}>
+                <th className="border px-4 py-2" scope="row">{user.id}</th>
+                <td className="border px-4 py-2 text-center">{user.fullName}</td>
+                <td className="border px-4 py-2 text-center">{user.email}</td>
+                <td className="border px-4 py-2 text-center">{user.password}</td>
+                <td className="border px-4 py-2 text-center">
+                  <Link to={`/admin/user/${user.id}`}>
                     <button
                       className=""
                     >

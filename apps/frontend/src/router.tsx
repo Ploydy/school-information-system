@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Outlet, createBrowserRouter } from "react-router-dom";
 
 import Login from "./pages/Login";
 import Dashboard from "./pages/admin/Dashboard";
@@ -7,10 +7,11 @@ import Profile from "./pages/admin/Profile";
 import Course from "./pages/admin/Course";
 
 import AdminLayout from "./pages/admin/layout/AdminLayout";
-import AddCourse from "./pages/admin/layout/AddCourse";
-import UpdateCourse from "./pages/admin/layout/UpdateCourse";
-import AddUser from "./pages/admin/layout/AddUser";
-import UpdateUser from "./pages/admin/layout/UpdateUser";
+import CourseForm from "./pages/admin/CourseForm";
+import UserForm from "./pages/admin/UserForm";
+import Settings from "./pages/admin/Settings";
+
+
 
 
 const router = createBrowserRouter([
@@ -28,35 +29,52 @@ const router = createBrowserRouter([
       },
       {
         path: '/admin/user',
-        element: <User />,
+        element: <Outlet />,
+        children: [
+          {
+            path: '',
+            element: <User />,
+          },
+          {
+            path: 'new',
+            element: <UserForm />,
+          },
+          {
+            path: ':id',
+            element: <UserForm />,
+          },
+        ],
+      },
+      
+      {
+        path: '/admin/Course',
+        element: <Outlet />,
+        children: [
+          { 
+            path: '',
+            element: <Course />
+             
+          },
+          {
+            path: 'new',
+            element: <CourseForm />,
+          },
+          {
+            path: ':id',
+            element: <CourseForm />
+          },
+        ],
       },
       {
         path: '/admin/profile',
         element: <Profile />,
       },
       {
-        path: '/admin/Course',
-        element: <Course />,
-      },
-      {
-        path: '/admin/AddCourse',
-        element: <AddCourse />,
-      },
-      {
-        path: '/admin/UpdateCourse/:id',
-        element: <UpdateCourse />,
-      },
-      {
-        path: '/admin/AddUser',
-        element: <AddUser />,
-      },
-      {
-        path: '/admin/UpdateUser/:id',
-        element: <UpdateUser />,
+        path: '/admin/settings',
+        element: <Settings />,
       },
     ],
   },
-
 ]);
 
 export default router;

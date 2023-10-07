@@ -39,30 +39,29 @@ export default function Course() {
     <div>
       <section>
         <h2>Course List</h2>
-        <Link to="/admin/AddCourse">
+        <Link to="/admin/course/new">
           <button className="btn btn-dark AddNewCourse">Add a new Course</button>
         </Link>
         <table className="table-fixed">
-          <thead className="">
+          <thead >
             <tr>
-              <th scope="col">Id</th>
-              <th scope="col">Course</th>
-              <th scope="col">Total Units</th>
-              <th scope="col">Description</th>
-              <th scope="col">Actions</th>
+              <th className="border w-1/5 px-1 py-2" scope="col">Id</th>
+              <th className="border w-1/5 px-1 py-2" scope="col">Course</th>
+              <th className="border w-1/5 px-1 py-2" scope="col">Total Units</th>
+              <th className="border w-1/5 px-1 py-2" scope="col">Description</th>
+              <th className="border w-1/5 px-1 py-2" scope="col">Actions</th>
             </tr>
           </thead>
           <tbody>
             {courses.map((course) => (
               <tr key={course.id}>
-                <th scope="row">{course.id}</th>
-                <td>{course.name}</td>
-                <td>{course.totalUnits}</td>
-                <td>{course.description}</td>
-                <td>
-                  <Link to={`/admin/updateCourse/${course.id}`}>
+                <th className="border px-4 py-2" scope="row">{course.id}</th>
+                <td className="border px-4 py-2 text-center">{course.name}</td>
+                <td className="border px-4 py-2 text-center">{course.totalUnits}</td>
+                <td className="border px-4 py-2 text-center" >{course.description}</td>
+                <td className="border px-4 py-2 text-center">
+                  <Link to={`/admin/course/${course.id}`}>
                     <button
-                      className="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300"
                     >
                       Update
                     </button>

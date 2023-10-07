@@ -1,4 +1,5 @@
 import express, { Request, Response } from 'express';
+import { CourseRequest, CourseResponse } from '@sis/dto';
 import { isValidObjectId } from 'mongoose';
 import { CourseDB } from '../data/mongoose';
 
@@ -51,6 +52,16 @@ router.post('/', async (req, res) => {
   await course.save();
 
   res.status(200).send('' + course.id);
+});
+
+
+router.post('/course', async (req: Request<undefined, CourseResponse, CourseRequest>, res) => {
+  const courses = await CourseDB.find({id: req.body.id, name: req.body.name, totalUnits: req.body.totalUnits, description: req.body.description,});
+  if (courses.length === 0) {
+    return res.status(404).send();
+  }
+  const course = courses[0]
+  return res.status(200).send({id: course.id, name: course.name, totalUnits: course.totalUnits, description: course.description,});
 });
 
 

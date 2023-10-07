@@ -26,7 +26,7 @@ export default function Login() {
     } else {
       alert('Incorrect credentials')
     }
-    
+
   };
 
   return (
@@ -73,4 +73,3 @@ export default function Login() {
     </div>
   )
 };
-
